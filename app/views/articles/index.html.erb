@@ -1,0 +1,22 @@
+
+<p class="notice"><%= notice %></p>
+<h1 class="page-title">Articles</h1>
+<%= link_to 'Search Analytics', analytics_searches_path, class: 'search-analytics-link' %>
+<%= link_to 'New Article', new_article_path, class: 'new-article-link' %>
+
+<div class="search-form">
+  <%= form_tag articles_path, method: :get, id: 'search_form' do %>
+    <%= text_field_tag :search, params[:search], id: 'searchInput', placeholder: 'Search articles...', class: 'search-input' %>
+    <%= submit_tag 'Search', class: 'search-btn' %>
+  <% end %>
+</div>
+
+<div class="article-list">
+  <% @articles.each do |article| %>
+    <div class="article-item">
+      <%= render article %>
+      <p><%= link_to "Show this article", article %></p>
+    </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,26 @@
+<h1>Search Analytics</h1>
+
+<div class="back-link">
+  <%= link_to 'Back to Home', root_path %>
+</div>
+
+<% if @searches.empty? %>
+  <p class="no-searches">No valid searches found.</p>
+<% else %>
+  <table class="search-table">
+    <thead>
+      <tr>
+        <th>Query</th>
+        <th>No of searches</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @searches.each do |search| %>
+        <tr>
+          <td><%= search.query %></td>
+          <td><%= search.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
